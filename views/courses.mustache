@@ -1,0 +1,16 @@
+{{#courses}}
+<!-- Loop through each course and show it inside a card -->
+<div class="card">
+  <div class="card-body">
+    <!-- Course title -->
+    <h5 class="card-title">{{title}}</h5>
+
+    <!-- Course description -->
+    <p>{{description}}</p>
+
+    <!-- Buttons to edit (for organisers) and book the course -->
+    <a href="/edit-course/{{_id}}" class="btn btn-secondary">Edit</a>
+    <a href="/book-course/{{_id}}" class="btn btn-primary">Book</a>
+  </div>
+</div>
+{{/courses}}

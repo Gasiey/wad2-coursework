@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <!-- Page heading -->
+    <h1>{{title}}</h1>
+
+    <!-- If there are bookings, loop through them -->
+    {{#bookings.length}}
+      {{#bookings}}
+      <div class="card mb-2">
+        <div class="card-body">
+          <!-- Display participant name and email -->
+          <p><strong>Name:</strong> {{studentName}}</p>
+          <p><strong>Email:</strong> {{studentEmail}}</p>
+        </div>
+      </div>
+      {{/bookings}}
+    {{/bookings.length}}
+
+    <!-- Message if no bookings exist -->
+    {{^bookings.length}}
+      <p>No participants have booked this course yet.</p>
+    {{/bookings.length}}
+
+    <!-- Back button -->
+    <a href="/" class="btn btn-primary mt-3">Back to Courses</a>
+  </div>
+</body>
+</html>

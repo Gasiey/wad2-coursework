@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <!-- Page title -->
+  <h1>{{title}}</h1>
+
+  <!-- Show organiser options if logged in -->
+  {{#organiser}}
+    <a href="/add-course" class="btn btn-primary mb-3">Add New Course</a>
+    <a href="/bookings" class="btn btn-info mb-3">View All Bookings</a>
+    <a href="/organisers" class="btn btn-dark mb-3">Manage Organisers</a>
+    <a href="/logout" class="btn btn-danger mb-3">Logout</a>
+  {{/organiser}}
+
+  <!-- If not logged in, show login button -->
+  {{^organiser}}
+    <a href="/login" class="btn btn-primary mb-3">Organiser Login</a>
+  {{/organiser}}
+
+  <!-- Loop through each course and display it -->
+  {{#courses}}
+  <div class="card mb-3">
+    <div class="card-body">
+      <!-- Course title -->
+      <h5 class="card-title">{{title}}</h5>
+
+      <!-- Course info -->
+      <p>{{description}}</p>
+      <p><strong>Date & Time:</strong> {{dateTimeFormatted}}</p>
+      <p><strong>Location:</strong> {{location}}</p>
+      <p><strong>Duration:</strong> {{duration}}</p>
+      <p><strong>Price:</strong> {{price}}</p>
+
+      <!-- Buttons for course actions -->
+      <a href="/courses/{{_id}}" class="btn btn-info">View Details</a>
+      <a href="/book-course/{{_id}}" class="btn btn-success">Book Course</a>
+    </div>
+  </div>
+  {{/courses}}
+</div>
+</body>
+</html>

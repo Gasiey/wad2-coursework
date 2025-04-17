@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <!-- Page title -->
+    <h1 class="mb-4">{{title}}</h1>
+
+    <!-- Organiser list table -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Loop through all users -->
+        {{#users}}
+        <tr>
+          <td>{{user}}</td>
+          <td>
+            <!-- If the user is the currently logged-in organiser -->
+            {{#isSelf}}
+              <span class="text-muted">You</span>
+            {{/isSelf}}
+
+            <!-- Show delete button for other organisers -->
+            {{^isSelf}}
+              <form action="/organisers/delete/{{user}}" method="POST" style="display:inline-block;" onsubmit="return confirm('Are you sure you want to delete this organiser?');">
+                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+              </form>
+            {{/isSelf}}
+          </td>
+        </tr>
+        {{/users}}
+
+        <!-- If no organisers exist -->
+        {{^users}}
+        <tr>
+          <td colspan="2">No organisers found.</td>
+        </tr>
+        {{/users}}
+      </tbody>
+    </table>
+
+    <!-- Add new organiser and back buttons -->
+    <a href="/register" class="btn btn-success">Add New Organiser</a>
+    <a href="/" class="btn btn-secondary ml-2">Back to Home</a>
+  </div>
+</body>
+</html>

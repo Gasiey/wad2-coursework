@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <!-- Page heading -->
+  <h1>{{title}}</h1>
+
+  <!-- Confirmation message with student name -->
+  <p>Thank you, {{booking.studentName}}! Your booking for the course is confirmed.</p>
+
+  <!-- Show student email that was used to book -->
+  <p><strong>Email:</strong> {{booking.studentEmail}}</p>
+
+  <!-- Button to return to homepage -->
+  <a href="/" class="btn btn-primary">Back to Courses</a>
+</div>
+</body>
+</html>
