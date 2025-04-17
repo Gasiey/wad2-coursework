@@ -2,7 +2,7 @@
 const model = require('../models/db');
 const userModel = require('../models/userModel');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const moment = require('moment');
 
 // Homepage - list all courses with optional organiser view
