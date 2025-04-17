@@ -10,6 +10,8 @@ const router = require('./routes/routes'); // All app routes
 
 const app = express();
 
+const PORT = process.env.PORT || 3000;
+
 // Set up Mustache view engine
 app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
@@ -24,6 +26,6 @@ app.use(cookieParser()); // Needed for JWT auth
 app.use('/', router);
 
 // Start the server
-app.listen(3000, () => {
-  console.log('Server started on port 3000');
-});
+app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`);
+  });
